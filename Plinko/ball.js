@@ -32,7 +32,7 @@ class Ball{
       setTimeout(() => {
         ballArr[0] = null;
         ballArr.splice(0,1);
-        ballArr.push(new Ball(0,0, 40, 30));
+        ballArr.push(new Ball(0,0, 40, this.diameter));
 
       }, 3000);
     }
