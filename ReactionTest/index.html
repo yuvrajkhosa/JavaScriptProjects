@@ -1,0 +1,256 @@
+<!doctype html>
+<title> Reaction Test </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+<body>
+
+    <button onclick="start()" class="btn btn-block btn-warning" style="font-size: 50px" id="startButton"> START </button>
+    <button onclick="again()" style="background-color: #33ccff; width: 100%; padding: 0; border: none" onmouseover="resetButtonMouse()" id="resetButton"> Reset </button>
+
+
+
+    <div>
+        <div class="pulsate alert-sucess" role="alert" id="result" style="border-color: #d1ecf1; text-align: center; font-size: 80px">
+        </div>
+    </div>
+    <div>
+
+    </div>
+
+    <style>
+        .unSelect {
+
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+
+        }
+
+
+
+
+
+        body {
+
+            cursor: url(https://s15.postimg.cc/ekaer0y97/e833aadaef8cfd68a2c176287af01434-32bits-128.png), auto;
+            background-color: #33ccff;
+
+        }
+
+        #checkBox {
+
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: 33ccff;
+            display: block;
+        }
+
+        #redBox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #ff3300;
+            display: none;
+        }
+
+        .pulsate {
+            -webkit-animation: pulsate 3s ease-out;
+            -webkit-animation-iteration-count: infinite;
+            opacity: 0.5;
+        }
+
+        @-webkit-keyframes pulsate {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1.0;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .center {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 40%;
+            left: 1%;
+            text-align: center;
+            padding: 1px;
+
+        }
+
+        ​
+    </style>
+
+    <div id="checkBox" onclick="checkClick()"> </div>
+
+    <div id="redBox" onclick="reaction()"> </div>
+    <h3 class="display-3 unSelect center pulsate " id="intro" style="font-size: 42px;font-family: Impact, Charcoal, sans-serif; color: white; top: 50%; left: 0.3%"> When the screen turns red, press the mouse button as fast as you can to see your reaction time </h3>
+    <h2 class="display-2 unSelect center " id="cheater" style="color:white; font-size: 120px;  font-family: Impact, Charcoal, sans-serif; display: none"> Resetting
+        </h1>
+        <h2 class="display-2 unSelect center " id="getReady" style="color:white; font-size: 120px;  font-family: Impact, Charcoal, sans-serif; display: none" onclick="checkClick()"> Get Ready
+            </h1>
+
+            <h1 class="display-1 unSelect center" id="clickNow" style="color:white; font-size: 120px;
+font-family: Impact, Charcoal, sans-serif; display: none" onclick="reaction()"> Click now </h1>
+
+            <!-- Javascript -->
+
+            <script>
+                function checkClick() {
+
+
+
+                    document.getElementById("getReady").style.display = "none"
+
+                    document.getElementById("cheater").style.display = "block";
+
+                    document.getElementById("intro").style.display = "none";
+                    setTimeout(restart, 1200);
+
+                    function restart() {
+                        location.reload()
+                    }
+                }
+
+
+
+                function start() {
+
+
+
+
+                    document.getElementById("getReady").style.display = "block";
+                    var rand = Math.floor((Math.random() * 10000) + 2000)
+                    $(function() {
+
+                        $("#startButton").slideUp(1000);
+
+                    });
+
+                    document.getElementById("intro").style.display = "none";
+
+                    setTimeout(beginReaction, rand)
+
+
+
+
+                    function beginReaction() {
+
+
+
+
+                        $("#getReady").remove();
+
+
+
+
+                        document.getElementById("checkBox").style.display = "none";
+
+                        document.getElementById("redBox").style.display = "block";
+                        document.getElementById("clickNow").style.display = "block";
+                        document.getElementById("resetButton").style.background = "#ff3300";
+
+
+                        var time = new Date().getTime()
+
+                        document.getElementById("time").innerHTML = time
+                    }
+                }
+
+
+                function reaction() {
+
+
+
+                    var startTime = document.getElementById("time").innerHTML
+
+                    var currentTime = new Date().getTime()
+
+                    var theirTimeNum = (currentTime - startTime) / 1000
+
+
+
+                    var theirTime = 'You\'re Reaction was ' + theirTimeNum + ' seconds'
+
+                    document.getElementById("result").innerHTML = theirTime
+
+
+
+                    document.getElementById("redBox").style.display = "none";
+
+
+
+                    document.getElementById("resetButton").style.background = "#33ccff";
+
+                    var scale;
+
+                    if (theirTimeNum < 0.23) {
+
+                        scale = "Very Good! That's Impressive. You are WAY above average! "
+
+                    } else if (theirTimeNum < 0.24) {
+
+                        scale = "Very Good, you are really above average!"
+
+                    } else if (theirTimeNum < 0.25) {
+
+                        scale = "Good, you are pretty above average!"
+                    } else if (theirTimeNum < 0.26) {
+                        scale = "Nice, you are just above average!"
+                    } else if (theirTimeNum < 0.27) {
+                        scale = "Nice, you are just above average!"
+                    } else if (theirTimeNum < 0.28) {
+                        scale = "Nice, you JUST made it past average. Good job!"
+                    } else if (theirTimeNum < 0.3) {
+
+                        scale = "Well done. You are under 0.3 Seconds!"
+                    } else if (theirTimeNum < 0.35) {
+                        scale = "Well done, that is getting towards the slow side"
+                    } else if (theirTimeNum < 0.499) {
+                        scale = "Good Job. Still under half a second!"
+
+                    } else {
+                        scale = "Nice. Not the best though"
+                    }
+
+                    document.getElementById("clickNow").innerHTML = scale;
+                    document.getElementById("clickNow").class = "center";
+
+                    document.getElementById("clickNow").style.fontSize = "65px";
+
+                    document.getElementById("clickNow").onclick = "";
+
+
+
+
+                }
+
+                function again() {
+
+                    location.reload()
+
+                }
+
+                function resetButtonMouse() {
+
+                    var resetButton = document.getElementById("resetButton");
+
+
+                }
+            </script>
+            <p id="time" style="display: none"> </p>
+
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    body{
+      background-color: #66b3ff;
+    }
+    .center{
+      text-align: center;
+    }
+    #inputBox{
+      font-size: 36px;
+      text-align: center;
+      color: black;
+      border: 0px solid;
+      outline: none;
+      background-color: #1a8cff;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+    }
+    #submitButton{
+      background-color:  #e6b3ff;
+      position: absolute;
+      top: 56.5%;
+    }
+    .output{
+      font-size: 24px;
+      text-align: center;
+      padding-top: 500px;
+    }
+  </style>
+  <h1 id="headdie" class="display-1 center">Synonym Convert!</h1>
+  <body>
+
+  <input id="inputBox" autocomplete="off" placeholder="Input Text Here"></input>
+
+
+    <button id = "submitButton" onclick="changeWord()" class = "btn btn-lg btn-block">Submit</button>
+      <h2 id="heading2" class = "output"></h2>
+    <script src = "index.js"></script>
+    <script src = "splitSentence.js"></script>
+  </body>
+</html>

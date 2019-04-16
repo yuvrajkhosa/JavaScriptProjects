@@ -1,0 +1,1 @@
+Tambola is an Indian version of Bingo. I made it because we always play this game at our family gathering but everyone is always asking if a number was called before. So I made a visualization of the board in JavaScript. I also added a feature where I just say the number in English and it will add the number to the board and also speak the number out in Hindi.
