@@ -7,6 +7,7 @@ class Ball{
     this.mass = m;
     this.doUpdates = true;
     this.isReleased = false;
+	this.checkDeath = false;
   }
 
   applyForce(givenForce){
@@ -29,12 +30,16 @@ class Ball{
       this.pos.y = height - this.diameter / 2;
       this.vel.y *= -0.2;//Not make this one, if we make it to one, then all the enegry is transferred into the bounce. ALL OF THE ENERGY!
       this.vel.x *= -0.1;//Try to dampen the impact
-      setTimeout(() => {
-        ballArr[0] = null;
-        ballArr.splice(0,1);
-        ballArr.push(new Ball(0,0, 40));
+	  if(!this.checkDeath){
+		  this.checkDeath = true;
+		  setTimeout(() => {
+			ballArr[0] = null;
+			ballArr.splice(0,1);
+			ballArr.push(new Ball(0,0));
+			console.log(ballArr);
 
-      }, 3000);
+		  }, 3000);
+	  }
     }
     if(this.pos.x > width || this.pos.x < 0){
       if(this.pos.x > width / 2){

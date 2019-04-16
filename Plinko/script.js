@@ -77,6 +77,6 @@ function mousePressed(){
 }
 
 function keyPressed(){
-  console.log(ball.vel)
+  
   ballArr[0].doUpdates = false;
 }
