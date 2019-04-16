@@ -1,5 +1,5 @@
 class Ball{
-  constructor(x, y, d, m){
+  constructor(x, y, d = 40, m = 2){
     this.pos = createVector(x,y);
     this.diameter = d;
     this.accel = createVector(0, 0);
@@ -32,7 +32,7 @@ class Ball{
       setTimeout(() => {
         ballArr[0] = null;
         ballArr.splice(0,1);
-        ballArr.push(new Ball(0,0, 40, this.diameter));
+        ballArr.push(new Ball(0,0, 40));
 
       }, 3000);
     }
