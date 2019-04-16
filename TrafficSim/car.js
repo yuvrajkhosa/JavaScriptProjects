@@ -3,7 +3,7 @@ class Car{
   constructor(_r,_a, _id){
 
     this.r = _r + random(-10,10)
-    this.a = _a * 0.0174533
+    this.a = _a * 0.0174533//Radians conversion
 
     this.len = 20
     this.amount = 0.01

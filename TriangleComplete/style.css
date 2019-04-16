@@ -1,13 +1,7 @@
-body{
-  background-color: #ffb3e6;
-}
-.triangle{
-  width: 0%;
-  height: 0%;
-  border-left: 0px solid transparent;
-  border-right: 600px solid transparent;
-  border-bottom: 600px solid #cc669980;
-  position: absolute;
-  right: 45%;
-  top: 10%;
+.fit{
+  max-width: 1%;
+  max-height: 50%;
+  position: static;
+
+
 }
