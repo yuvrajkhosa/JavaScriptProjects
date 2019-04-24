@@ -66,7 +66,7 @@ function pickRandomWord(wordObject){
 }
 //Cooler Way.
 async function getPromise(word){
-  const apiURL = (`http://words.bighugelabs.com/api/2/${apiKey}/${word}/json`);
+  const apiURL = (`https://words.bighugelabs.com/api/2/${apiKey}/${word}/json`);
   const result = await fetch(apiURL);//Will not exceed this line until fetch has retrieven promise.
   if(result.status != 200){
     return(Promise.reject("fakeWord"));
