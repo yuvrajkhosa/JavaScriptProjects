@@ -42,23 +42,23 @@ class Car{
 
   }
   move(other){
-        this.d = dist(this.x,this.y,other.x,other.y )
+    this.d = dist(this.x,this.y,other.x,other.y )
 
 
 
 
-        if(this.constMover == true && this.d > 150){
-          this.amount = 0.011
-        }else{
-          this.amount = map(this.d, 100, 50, 0.01, 0)
-        }
+    if(this.constMover == true && this.d > 150){
+      this.amount = 0.011
+    }else{
+      this.amount = map(this.d, 100, 50, 0.01, 0)
+    }
 
-        if (!this.stop){
-        this.a += this.amount
+    if (!this.stop){
+    this.a += this.amount
 
-        }
+    }
 
-      }
+  }
 
   stopMoving(){
 
